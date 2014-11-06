@@ -1,0 +1,87 @@
+//calcul du score du joueur
+
+Première étoile : L'inconnu cherché est isolé (varible x ou boîte en carton)
+Deuxième étoile : Le bon SCORE (nombre de SCORE) est éxécuté (sans déplacement en plus)
+Troisième étoile: Utilisation du bon nombre de cartes 
+									(Ne pas ajouter des cartes inutilement)
+
+
+++ : Au niveau de la collision éliminé un 0 ou un trou noir est compté comme un déplacement
+
+*Tant que l'inconnu chercher n'est pas isolé
+		*Si une carte est déplacé dans le vide
+			retour à la position initiale de la carte et le score ne varie pas
+		*Si disparition d'un 0 ou d'un trou noir (en cliquant dessus)
+			alors SCORE = SCORE + 1
+		*Si une carte est déplacée pour faire une collision
+			alors que ce soit une bonne ou mauvaise collision, le score (SCORE s'incrémente de 1)
+
+//Fichier equationsexamples.js
+
+Chapter 5, Level 1: 0 + x = b
+
+SCORE MAX = 1;
+
+Tant que x non isolé
+	Si on fait disparaitre le 0 (en cliquant dessus)
+		alors SCORE = SCORE +1 
+
+Première étoile : OUI
+Deuxième étoile : OUI
+Troisième étoile: OUI
+
+
+Chapter 5, Level 2: c = x + (-6) + 6
+
+SCORE MAX = 2;
+
+Tant que x non isolé
+	Si il y a collision du 6 et (-6)
+		alors score = score + 1
+	SI on fait disparaitre le 0 crée
+		alors score = score + 1
+
+Première étoile : OUI
+Deuxième étoile : OUI
+Troisième étoile: OUI
+
+
+Chapter 5, Level 3: (-5) + 5 + c = e + (-e) +2 + x
+
+SCORE MAX = 7;
+
+Tant que x non isolé
+	Si ajout du (-2) sur côté droit alors forcément ajout sur le côté gauche
+		alors SCORE = SCORE + 1 
+	Si on fait collision du 2 et (-2)
+		alors SCORE = SCORE + 1
+	Si on fait collision du e et (-e)
+		alors SCORE = SCORE + 1
+	Si on fait collision du 5 et (-5)
+		alors SCORE = SCORE + 1
+	Si on fait disparaitre le 0 (en cliquant dessus)
+		alors SCORE = SCORE + 1 
+
+Première étoile : OUI
+Deuxième étoile : OUI
+Troisième étoile: OUI
+
+Chapter 5, Level 4: (-c) + x + d = b
+
+SCORE MAX = 6;
+
+Tant que x non isolé
+	Si ajout du c sur côté gauche alors forcément ajout sur le côté droit
+		alors SCORE = SCORE + 1 
+	Si on fait collision du c et (-c)
+		alors SCORE = SCORE + 1
+	Si ajout du (-d) sur côté gauche alors forcément ajout sur le côté droit
+		alors SCORE = SCORE + 1 
+	Si on fait collision du (-d) et d
+		alors SCORE = SCORE + 1
+	Si on fait disparaitre le 0 (en cliquant dessus)
+		alors SCORE = SCORE + 1 
+
+Première étoile : OUI
+Deuxième étoile : OUI
+Troisième étoile: OUI

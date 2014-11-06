@@ -1,0 +1,54 @@
+//LISTES DES CAS DE COLLISIONS ET PROVOCATIONS
+
+Lister les différents cas de collision. Exemple: une carte 6 avec une carte -6.
+
+carte négatif = c_neg
+carte positif = c_pos
+
+1) La c_neg correspond à la c_pos, cela provoque la dispartition de la c_neg et de la c_pos.
+		exemple : dans le cas du jeu
+							monstre  -> provoque un trou noir (clique sur trou noir provoque disparition trou noir)
+							variable -> on obtient un 0 et effacable en cliquant dessus
+
+2) La c_neg ne correspond pas à la c_pos donc on otient un renvoie de la carte qui se remet à sa position d'origine.
+		exemple : -6 + 5 ne s'élimine pas -> retour à la position initiale des cartes
+							collision enclenché mais comme 5 et -6 ne correspondent pas alors RETOUR
+
+3) Cliquer sur une carte permet la multiplication par -1 de cette même carte ou on obtient le coté ange/démon 
+		exemple : variable
+								x on clique -> -x
+							monstre
+								monstre (ange) on clique -> idem monstre (démon)
+
+4) Déplacer une carte de droite à gauche ou de gauche à droite provoque son inversion :
+		 pour les variable
+			 6 ->  -6
+			-6 ->   6
+			 x ->  -x
+			-x ->   x
+		 pour les monstres (ange/démon)
+
+5) Dans le cas d'une fraction cela provoque son inverse et la création d'une case manquante à remplir :
+		1/x ->   x
+		x   -> 1/x
+		Exception dans le cas des fractions on obtient l'inverse et les cartes se collent/rattachent au cartes déjà existantes (distributivité).
+		
+		Si on a une fraction tel que x/x leur collision provoque un 1
+		J'écrit ce cas la par exemple :
+			bx/xc on doit déplacer x sur x pour créer 1 on a alors : b.1/c  et "ICI" le b.1 s'évalue par b -> le 1 fait collision avec b or 1 et b non identique -> exception pour le 1 qui s'élimine seul
+
+6) Le fait de déplacer une carte sur une autre ne provoque rien tant que l'on a pas relaché le bouton gauche de la souris; c'est à dire que la collision n'est pas provoquée tant qu'on lache pas le bouton :
+		exemple : on a 2 cases -6 on ajoute un 6
+							le fait de passer sur le premier -6 ne provoque rien car bouton non relaché
+							Pour les monstres collision déclenché SSI le monstre correspond à son opposé
+							Pour les variables chiffres surtout SSI le chiffre correspond à son inverse 
+								exemple : on veut éliminer un -6 mais on a une carte 5 la collision ne doit rien provoqué
+								
+7) Ajouter une variable/monstre sur un coté de l'équation pour faire une simplification provoque la création de ce même ajout sur le côté opposé
+
+		-7 + a = 5.x => on veut diviser 5.x par 5
+		-7/? + a/? = (5.x)/5   => on est obligé d'ajouter 2 fois 5 surle côté gauche règle 5)
+		-7/5 + a/5 = (5.x)/5   => on veut simplifier les 5 du côté droit
+		-7/5 + a/5 =  1.x      => le 1.x va se simplifié seul on aura alors
+		-7/5 + a/5 =  x        => si le côté où on doit cherché x est seul alors la simplification du côté gauche est inutile
+		=> VALIDE
